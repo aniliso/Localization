@@ -1,0 +1,14 @@
+{
+    "name": "Localization",
+    "alias": "localization",
+    "description": "",
+    "keywords": [],
+    "active": 0,
+    "order": 90,
+    "providers": [
+        "Modules\\Localization\\Providers\\LocalizationServiceProvider",
+        "Modules\\Localization\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": [],
+    "files": []
+}
