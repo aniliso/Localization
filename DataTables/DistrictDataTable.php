@@ -22,7 +22,13 @@ class DistrictDataTable extends DataTable
                 return $district->city->name;
             })
             ->addColumn('action', function ($district) {
-                $action_buttons = \Html::decode(\Form::button(
+                $action_buttons =   \Html::decode(link_to(
+                    route('admin.localization.district.edit',
+                        [$district->id]),
+                    '<i class="fa fa-pencil"></i>',
+                    ['class'=>'btn btn-default btn-flat']
+                ));
+                $action_buttons .= \Html::decode(\Form::button(
                     '<i class="fa fa-trash"></i>',
                     [
                         "data-toggle"        => "modal",
@@ -70,7 +76,7 @@ class DistrictDataTable extends DataTable
     {
         return [
             'id',
-            'city' => ['name' => 'city.name', 'data' => 'city', 'title' => 'Şehir'],
+            'city' => ['name' => 'city', 'data' => 'city', 'title' => 'Şehir'],
             'county' => ['name' => 'county', 'data' => 'county', 'title' => 'İlçe'],
             'district' => ['name' => 'district', 'data' => 'district', 'title' => 'Bölge'],
             'neighborhood' => ['name' => 'neighborhood', 'data' => 'neighborhood', 'title' => 'Mahalle/Köy']

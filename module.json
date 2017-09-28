@@ -3,7 +3,7 @@
     "alias": "localization",
     "description": "",
     "keywords": [],
-    "active": 0,
+    "active": 1,
     "order": 90,
     "providers": [
         "Modules\\Localization\\Providers\\LocalizationServiceProvider",

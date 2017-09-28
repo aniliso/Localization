@@ -27,15 +27,4 @@ class CacheCityDecorator extends BaseCacheDecorator implements CityRepository
                 }
             );
     }
-
-    public function findDistricts($city_id)
-    {
-        return $this->cache
-            ->tags($this->entityName, 'global')
-            ->remember("{$this->locale}.{$this->entityName}.findDistricts.{$city_id}", $this->cacheTime,
-                function () use ($city_id) {
-                    return $this->repository->findDistricts($city_id);
-                }
-            );
-    }
 }

@@ -17,4 +17,9 @@ class Country extends Model
     {
         return $query->leftJoin('localization__country_translations as lang', 'lang.country_id', '=', 'localization__countries.id');
     }
+
+    public function cities()
+    {
+        return $this->hasMany(City::class);
+    }
 }

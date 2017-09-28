@@ -4,6 +4,8 @@ namespace Modules\Localization\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Traits\CanPublishConfiguration;
+use Modules\Localization\Composer\Backend\CityComposer;
+use Modules\Localization\Composer\Backend\CountryComposer;
 
 class LocalizationServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,20 @@ class LocalizationServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerBindings();
+
+        view()->composer([
+            'localization::admin.cities.create',
+            'localization::admin.cities.edit',
+            'localization::admin.districts.create'
+        ],
+        CountryComposer::class
+        );
+
+        view()->composer([
+            'localization::admin.districts.create'
+        ],
+            CityComposer::class
+        );
     }
 
     public function boot()

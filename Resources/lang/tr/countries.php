@@ -1,22 +1,24 @@
 <?php
 
 return [
-    'list resource' => 'List countries',
-    'create resource' => 'Create countries',
-    'edit resource' => 'Edit countries',
-    'destroy resource' => 'Destroy countries',
+    'list resource' => 'Ülke Listele',
+    'create resource' => 'Ülke Ekle',
+    'edit resource' => 'Ülke Düzenle',
+    'destroy resource' => 'Ülke Sil',
     'title' => [
         'country'   => 'Ülke',
         'countries' => 'Ülkeler',
-        'create country' => 'Create a country',
-        'edit country' => 'Edit a country',
+        'create country' => 'Ülke Ekle',
+        'edit country' => 'Ülke Düzenle',
     ],
     'button' => [
-        'create country' => 'Create a country',
+        'create country' => 'Ülke Ekle',
     ],
     'table' => [
     ],
     'form' => [
+        'iso'  => 'Ülke Kodu (ISO https://en.wikipedia.org/wiki/ISO_3166-1)',
+        'name' => 'Ülke Adı',
     ],
     'messages' => [
     ],

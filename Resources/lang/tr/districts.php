@@ -1,18 +1,18 @@
 <?php
 
 return [
-    'list resource' => 'List districts',
-    'create resource' => 'Create districts',
-    'edit resource' => 'Edit districts',
-    'destroy resource' => 'Destroy districts',
+    'list resource' => 'Bölge Listele',
+    'create resource' => 'Bölge Ekle',
+    'edit resource' => 'Bölge Düzenle',
+    'destroy resource' => 'Bölge Sil',
     'title' => [
         'district' => 'Bölge',
         'districts' => 'Bölgeler',
-        'create district' => 'Create a district',
-        'edit district' => 'Edit a district',
+        'create district' => 'Bölge Ekle',
+        'edit district' => 'Bölge Düzenle',
     ],
     'button' => [
-        'create district' => 'Create a district',
+        'create district' => 'Bölge Ekle',
     ],
     'table' => [
     ],

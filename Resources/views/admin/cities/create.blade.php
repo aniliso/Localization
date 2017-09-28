@@ -19,6 +19,11 @@
     {!! Form::open(['route' => ['admin.localization.city.store'], 'method' => 'post']) !!}
     <div class="row">
         <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    {!! Form::normalSelect('country_id', trans('localization::cities.form.country_id'), $errors, $countryLists) !!}
+                </div>
+            </div>
             <div class="nav-tabs-custom">
                 @include('partials.form-tab-headers')
                 <div class="tab-content">

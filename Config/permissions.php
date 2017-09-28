@@ -19,6 +19,9 @@ return [
         'create'  => 'localization::districts.create resource',
         'edit'    => 'localization::districts.edit resource',
         'destroy' => 'localization::districts.destroy resource',
+    ],
+    'api.localization'       => [
+        'countries' => 'localization::countries.list resource',
+        'cities'    => 'localization::cities.list resource',
     ]
 ];
-

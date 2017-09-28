@@ -19,6 +19,11 @@
     {!! Form::open(['route' => ['admin.localization.country.store'], 'method' => 'post']) !!}
     <div class="row">
         <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    {!! Form::normalInput('iso', trans('localization::countries.form.iso'), $errors) !!}
+                </div>
+            </div>
             <div class="nav-tabs-custom">
                 @include('partials.form-tab-headers')
                 <div class="tab-content">

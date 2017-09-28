@@ -5,6 +5,7 @@ namespace Modules\Localization\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Localization\DataTables\CityDataTable;
+use Modules\Localization\DataTables\DistrictDataTable;
 use Modules\Localization\Entities\City;
 use Modules\Localization\Repositories\CityRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
@@ -20,12 +21,15 @@ class CityController extends AdminBaseController
      */
     private $cityDataTable;
 
-    public function __construct(CityRepository $city, CityDataTable $cityDataTable)
+    private $districtDataTable;
+
+    public function __construct(CityRepository $city, CityDataTable $cityDataTable, DistrictDataTable $districtDataTable)
     {
         parent::__construct();
 
         $this->city = $city;
         $this->cityDataTable = $cityDataTable;
+        $this->districtDataTable = $districtDataTable;
     }
 
     /**
@@ -42,9 +46,9 @@ class CityController extends AdminBaseController
 
     public function districts(City $city)
     {
-        $districts = $this->city->findDistricts($city->id);
+        $districts = $this->city->find($city->id)->districts;
 
-        return view('localization::admin.districts.index', compact('districts'));
+        return $this->districtDataTable->render('localization::admin.districts.index');
     }
 
     /**

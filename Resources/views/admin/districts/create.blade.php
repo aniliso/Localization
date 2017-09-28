@@ -19,6 +19,13 @@
     {!! Form::open(['route' => ['admin.localization.district.store'], 'method' => 'post']) !!}
     <div class="row">
         <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    {!! Form::normalSelect('country_id', trans('localization::districts.form.country_id'), $errors, $countryLists) !!}
+
+                    {!! Form::normalSelect('city_id', trans('localization::districts.form.city_id'), $errors, []) !!}
+                </div>
+            </div>
             <div class="nav-tabs-custom">
                 @include('partials.form-tab-headers')
                 <div class="tab-content">
@@ -68,6 +75,38 @@
                 checkboxClass: 'icheckbox_flat-blue',
                 radioClass: 'iradio_flat-blue'
             });
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
+                }
+            });
+            var country_id = $("select[name=country_id]");
+            var city_id = $("select[name=city_id]");
+            country_id.select2();
+            city_id.select2();
+            getCities(country_id.val());
+            country_id.change(function(){
+                data = getCities(this.value);
+            });
+            function getCities(id) {
+                $.ajax({
+                    method: 'POST',
+                    dataType: "json",
+                    url: "{{ route('api.localization.city.index') }}",
+                    data: {id:id},
+                    success: function (data) {
+                       if(data.success) {
+                           var output = [];
+                           $.each(data.data, function(key, val) {
+                               output.push('<option value="'+ key +'">'+ val +'</option>');
+                           });
+                           city_id.html(output.join(''));
+                       } else {
+                           city_id.html("<option>Sonuç Yok</option>");
+                       }
+                    }
+                });
+            }
         });
     </script>
 @stop

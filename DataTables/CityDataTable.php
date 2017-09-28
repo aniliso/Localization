@@ -7,6 +7,7 @@ use Yajra\Datatables\Services\DataTable;
 
 class CityDataTable extends DataTable
 {
+    protected $actions = ['print', 'excel'];
     /**
      * Display ajax response.
      *
@@ -19,7 +20,24 @@ class CityDataTable extends DataTable
             ->addColumn('country', function(City $city) {
                 return $city->country->name;
             })
-            ->addColumn('action', 'path.to.action.view')
+            ->addColumn('action', function(City $city) {
+                $action_buttons =   \Html::decode(link_to(
+                    route('admin.localization.city.edit',
+                        [$city->id]),
+                    '<i class="fa fa-pencil"></i>',
+                    ['class'=>'btn btn-default btn-flat']
+                ));
+                $action_buttons .= \Html::decode(\Form::button(
+                    '<i class="fa fa-trash"></i>',
+                    [
+                        "data-toggle"        => "modal",
+                        "data-action-target" => route("admin.localization.city.destroy", [$city->id]),
+                        "data-target"        => "#modal-delete-confirmation",
+                        "class"              => "btn btn-danger btn-flat"
+                    ]
+                ));
+                return $action_buttons;
+            })
             ->make(true);
     }
 
@@ -82,7 +100,9 @@ class CityDataTable extends DataTable
                 'print',
                 'reset',
                 'reload',
+                'excel'
             ],
+            'dom' => 'Bfrtip'
         ];
     }
 

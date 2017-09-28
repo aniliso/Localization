@@ -1,5 +1,3 @@
 <div class="box-body">
-    <p>
-        Your fields //
-    </p>
+    {!! Form::i18nInput('name', trans('localization::cities.form.name'), $errors, $lang) !!}
 </div>

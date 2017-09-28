@@ -1,25 +1,27 @@
 <?php
 
 return [
-    'list resource' => 'List cities',
-    'create resource' => 'Create cities',
-    'edit resource' => 'Edit cities',
-    'destroy resource' => 'Destroy cities',
-    'title' => [
-        'city'  => 'Şehir',
-        'cities' => 'Şehirler',
-        'create city' => 'Create a city',
-        'edit city' => 'Edit a city',
+    'list resource'    => 'Şehir Listele',
+    'create resource'  => 'Şehir Ekle',
+    'edit resource'    => 'Şehir Düzenle',
+    'destroy resource' => 'Şehir Sil',
+    'title'            => [
+        'city'        => 'Şehir',
+        'cities'      => 'Şehirler',
+        'create city' => 'Şehir Ekle',
+        'edit city'   => 'Şehir Düzenle',
     ],
-    'button' => [
-        'create city' => 'Create a city',
+    'button'           => [
+        'create city' => 'Şehir Ekle',
     ],
-    'table' => [
+    'table'            => [
     ],
-    'form' => [
+    'form'             => [
+        'name'       => 'Şehir',
+        'country_id' => 'Ülke'
     ],
-    'messages' => [
+    'messages'         => [
     ],
-    'validation' => [
+    'validation'       => [
     ],
 ];
