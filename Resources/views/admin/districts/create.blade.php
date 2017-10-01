@@ -92,7 +92,7 @@
                 $.ajax({
                     method: 'POST',
                     dataType: "json",
-                    url: "{{ route('api.localization.city.index') }}",
+                    url: "{{ route('api.localization.cities') }}",
                     data: {id:id},
                     success: function (data) {
                        if(data.success) {

@@ -33,7 +33,7 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
     {
         $menu->group(trans('core::sidebar.content'), function (Group $group) {
             $group->item(trans('localization::localization.title.localization'), function (Item $item, Group $group) {
-                $item->icon('fa fa-copy');
+                $item->icon('fa fa-globe');
                 $item->weight(10);
                 $item->authorize(
                      /* append */
