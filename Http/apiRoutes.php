@@ -8,12 +8,12 @@ $router->group(['prefix' => 'v1/localization', 'middleware'=>['bindings','api.to
         return app(\Modules\Localization\Repositories\CountryRepository::class)->find($id);
     });
     $router->get('countries', [
-        'as'         => 'api.localization.country.index',
+        'as'         => 'api.localization.countries',
         'uses'       => 'V1\PublicController@countries',
         'middleware' => 'token-can:localization.countries.index',
     ]);
-    $router->post('cities', [
-        'as'         => 'api.localization.city.index',
+    $router->get('cities', [
+        'as'         => 'api.localization.cities',
         'uses'       => 'V1\PublicController@cities',
         'middleware' => 'token-can:localization.cities.index',
     ]);
