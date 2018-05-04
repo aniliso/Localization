@@ -22,26 +22,15 @@
             <div class="box">
                 <div class="box-body">
                     {!! Form::normalSelect('country_id', trans('localization::cities.form.country_id'), $errors, $countryLists) !!}
+
+                    {!! Form::normalInput('name', trans('localization::cities.form.name'), $errors) !!}
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.create') }}</button>
+                    <button class="btn btn-default btn-flat" name="button" type="reset">{{ trans('core::core.button.reset') }}</button>
+                    <a class="btn btn-danger pull-right btn-flat" href="{{ route('admin.localization.city.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
                 </div>
             </div>
-            <div class="nav-tabs-custom">
-                @include('partials.form-tab-headers')
-                <div class="tab-content">
-                    <?php $i = 0; ?>
-                    @foreach (LaravelLocalization::getSupportedLocales() as $locale => $language)
-                        <?php $i++; ?>
-                        <div class="tab-pane {{ locale() == $locale ? 'active' : '' }}" id="tab_{{ $i }}">
-                            @include('localization::admin.cities.partials.create-fields', ['lang' => $locale])
-                        </div>
-                    @endforeach
-
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.create') }}</button>
-                        <button class="btn btn-default btn-flat" name="button" type="reset">{{ trans('core::core.button.reset') }}</button>
-                        <a class="btn btn-danger pull-right btn-flat" href="{{ route('admin.localization.city.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
-                    </div>
-                </div>
-            </div> {{-- end nav-tabs-custom --}}
         </div>
     </div>
     {!! Form::close() !!}

@@ -16,6 +16,8 @@ class CreateLocalizationCitiesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             // Your fields
+            $table->string('name');
+
             $table->integer('country_id')->unsigned();
             $table->foreign('country_id')->references('id')->on('localization__countries')->onDelete('cascade');
             $table->timestamps();
