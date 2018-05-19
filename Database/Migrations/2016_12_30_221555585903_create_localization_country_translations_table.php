@@ -33,9 +33,11 @@ class CreateLocalizationCountryTranslationsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::table('localization__country_translations', function (Blueprint $table) {
             $table->dropForeign(['country_id']);
         });
         Schema::dropIfExists('localization__country_translations');
+        Schema::enableForeignKeyConstraints();
     }
 }

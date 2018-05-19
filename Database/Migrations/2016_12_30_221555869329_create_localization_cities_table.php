@@ -31,6 +31,9 @@ class CreateLocalizationCitiesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('localization__cities');
+        Schema::dropIfExists('Localization__city_translations');
+        Schema::enableForeignKeyConstraints();
     }
 }

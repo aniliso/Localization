@@ -28,6 +28,8 @@ class CreateLocalizationCountriesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('localization__countries');
+        Schema::enableForeignKeyConstraints();
     }
 }
