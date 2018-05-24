@@ -26,6 +26,11 @@ class LocalizationServiceProvider extends ServiceProvider
     {
         $this->registerBindings();
 
+        $this->app->extend('asgard.ModulesList', function($app) {
+            array_push($app, 'localization');
+            return $app;
+        });
+
         view()->composer([
             'localization::admin.cities.create',
             'localization::admin.cities.edit',
